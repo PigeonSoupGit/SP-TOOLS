@@ -17,15 +17,16 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    max-width: 1800px;
+    max-width: 100vw;
     margin: 0 auto;
-    padding: 40px 40px;
+    padding: 40px 20px;  /* reduced side padding */
     background: var(--background);
     color: var(--text);
     line-height: 1.6;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -141,12 +142,12 @@ button:active {
 
 .widgets-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 600px), 1fr));
+    gap: 1rem;
     width: 100%;
-    max-width: 1800px;
+    padding: 1rem;
+    box-sizing: border-box;
     margin: 0 auto;
-    padding: 2rem;
 }
 
 .widget {
@@ -161,6 +162,9 @@ button:active {
     flex-direction: column;
     cursor: default;
     user-select: none;
+    width: 100%;
+    min-width: 0;  /* prevents widget from overflowing */
+    box-sizing: border-box;
 }
 
 .widget-content {
@@ -169,6 +173,11 @@ button:active {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .widget:hover {
@@ -478,6 +487,38 @@ button:active {
         grid-template-columns: 1fr;
     }
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .widgets-container {
+        padding: 0.5rem;
+        grid-template-columns: 1fr;
+    }
+
+    .widget {
+        padding: 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .button-group button {
+        width: 100%;
+    }
+
+    .tab-container {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
+    }
+}
+
 .tab-container {
     display: flex;
     gap: 0.5rem;
