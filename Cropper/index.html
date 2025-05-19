@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Image Cropper</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Cropper</h1>
+        <div class="drop-area" id="drop-area">
+            <div class="drop-content">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                </svg>
+                <p>Drag & Drop your image here</p>
+                <span>or</span>
+                <label class="file-input-button" for="fileElem">Choose File</label>
+                <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this.files)">
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="sourceCanvas"></canvas>
+            <canvas id="previewCanvas"></canvas>
+        </div>
+        <div class="controls">
+            <button id="confirmCrop" class="confirm-button">
+                <span>Confirm Crop</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M20 6L9 17l-5-5"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
