@@ -1,5 +1,5 @@
 import { showNotification } from './utils.js';
-
+// clipboard history thats stored in local storage
 const MAX_HISTORY_ITEMS = 20;
 
 export function initClipboardHistory() {
@@ -52,7 +52,7 @@ function loadHistory() {
 function saveHistory(history) {
     localStorage.setItem('clipboardHistory', JSON.stringify(history));
 }
-
+// function to render the history in the UI
 function renderHistory() {
     const history = loadHistory();
     
@@ -71,7 +71,7 @@ function renderHistory() {
         }
     });
 }
-
+// Copy the text from the history item to the clipboard
 window.copyHistoryItem = function(type, index) {
     const history = loadHistory();
     const text = history[type][index];
@@ -79,7 +79,7 @@ window.copyHistoryItem = function(type, index) {
         .then(showNotification)
         .catch(err => console.error('Failed to copy text:', err));
 };
-
+// Delete the history item from the local storage and re-render the history
 window.deleteHistoryItem = function(type, index) {
     const history = loadHistory();
     history[type].splice(index, 1);

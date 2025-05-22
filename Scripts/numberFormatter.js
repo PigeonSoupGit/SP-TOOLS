@@ -5,7 +5,7 @@ export function initNumberFormatter() {
     numberInputs.forEach(input => {
         input.addEventListener('input', updateNumberOutput);
     });
-
+    // update the output on any input change
     function updateNumberOutput() {
         const numbers = numberInputs.map(input => input.value || '0');
         const currentDate = new Date().toLocaleDateString('en-GB');

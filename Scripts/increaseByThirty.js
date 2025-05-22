@@ -1,3 +1,4 @@
+// Simple script to times the shipping amount by 1.3 - Avoids having to press operation buttons on the calculator. Also spits it out in plain english.
 export function initIncreaseByThirty() {
     const numberInput = document.getElementById('numberInput');
     const increasedOutput = document.getElementById('increasedOutput');
