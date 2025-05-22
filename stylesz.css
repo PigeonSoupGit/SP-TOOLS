@@ -165,6 +165,7 @@ button:active {
     width: 100%;
     min-width: 0;  /* prevents widget from overflowing */
     box-sizing: border-box;
+    align-items: center
 }
 
 .widget-content {
