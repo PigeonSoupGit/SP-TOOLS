@@ -584,3 +584,21 @@ button:active {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-color: var(--primary);
 }
+
+.radio-container {
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--widget-bg);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.radio-container iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+}
