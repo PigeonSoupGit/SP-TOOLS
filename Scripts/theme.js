@@ -42,6 +42,7 @@ export const themes = {
         inputBg: '#1e1f29',
         inputText: '#f8f8f2',
         widgetBg: '#282a36',
+        surfaceGlass: 'rgba(40, 42, 54, 0.88)',
         labelColor: '#6272a4',
         headingColor: '#f8f8f2',
         scrollbarTrack: '#1e1f29'
@@ -144,6 +145,8 @@ export function applyTheme(themeName) {
     root.style.setProperty('--tertiary', theme.tertiary);
     root.style.setProperty('--tertiary-gradient', theme.tertiaryGradient);
     root.style.setProperty('--tertiary-shadow', theme.tertiaryShadow);
+    root.style.setProperty('--focus-shadow-color', theme.tertiaryShadow);
+    root.style.setProperty('--surface-glass', theme.surfaceGlass || 'rgba(255, 255, 255, 0.72)');
 
     // Add all dynamic styles in one block
     const dynamicStyle = document.createElement('style');
@@ -158,17 +161,11 @@ export function applyTheme(themeName) {
         }
         
         .tab-button.active {
+            color: ${theme.primary};
+        }
+        
+        h2::before {
             background: ${theme.primaryGradient};
-            border-bottom: 3px solid ${theme.primary};
-        }
-        
-        h2 {
-            border-image: linear-gradient(to right, ${theme.primary}, ${theme.tertiary}) 1;
-            border-bottom: 2px solid;
-        }
-        
-        .scale-dot::after {
-            color: ${theme.tertiary};
         }
         
         textarea:focus, .output:focus {
