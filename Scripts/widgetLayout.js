@@ -11,8 +11,6 @@ export function initWidgetLayout() {
     editModeToggle.addEventListener('click', () => {
         editModeToggle.classList.toggle('active');
         document.body.classList.toggle('edit-mode');
-        
-        // Disable text selection during edit mode
         document.body.style.userSelect = document.body.classList.contains('edit-mode') ? 'none' : 'text';
     });
 
